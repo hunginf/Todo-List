@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import * as S from './styles';
 import moment from 'moment';
 import Button from '../../Components/Button/index.js';
@@ -89,4 +90,8 @@ export default function AddNewTask({
             </S.Inner>
         </S.Container>}
     </div>
+}
+
+AddNewTask.propTypes = {
+    trigger: PropTypes.node
 }

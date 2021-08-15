@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import Button from '../Button';
 import Input from '../Input';
@@ -10,8 +11,7 @@ import {useRecoilState, useRecoilValue} from 'recoil';
 export default function TodoItem({
     onRemove = () => {},
     onHandler = () => {},
-    item = {},
-    ...props
+    item = {}
 }) {
     // Global
     const [items, setItems] = useRecoilState(setTodoList);
@@ -38,7 +38,7 @@ export default function TodoItem({
     };
 
     const onSave = (item) => {
-        const updatedItems = items.map((_item, index) => {
+        const updatedItems = items.map(_item => {
             if (_item._id === item._id) {
                 return item;
             }
@@ -93,4 +93,10 @@ export default function TodoItem({
             </S.Bottom>}
         </S.Box>
     </S.BoxWrapper>;
+}
+
+TodoItem.propTypes = {
+    onRemove: PropTypes.func,
+    onHandler: PropTypes.func,
+    item: PropTypes.object,
 }

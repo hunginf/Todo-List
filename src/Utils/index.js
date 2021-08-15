@@ -14,4 +14,4 @@ export const getStore = (n) => {
 
 export const setStore = (n, v) => localStorage.setItem(n, JSON.stringify(v));
 
-export const removeStore = (n, v) => localStorage.removeItem(n);
+export const removeStore = (n) => localStorage.removeItem(n);

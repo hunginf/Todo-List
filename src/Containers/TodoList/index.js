@@ -63,7 +63,7 @@ export default function TodoList() {
     const onSearch = (e) => {
         if (e.key === 'Enter') {
             if (keyword) {
-                setItems(todoList.filter(i => i.title.includes(keyword)));
+                setItems(todoList.filter(i => i.title.toLowerCase().includes(keyword.toLowerCase())));
             } else {
                 setItems(todoList);
             }

@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SelectContainer, SelectStyled, OptionStyled } from './styles';
 
 export default function Select({
     block = false,
-    styles,
-    children,
     values = [],
     ...props
 }) {
@@ -13,4 +12,9 @@ export default function Select({
             {values.map((v, i) => <OptionStyled key={i} value={v.value}>{v.name}</OptionStyled>)}
         </SelectStyled>
     </SelectContainer>;
+}
+
+Select.propTypes = {
+    block: PropTypes.bool,
+    values: PropTypes.array
 }
