@@ -77,7 +77,7 @@ export default function TodoItem({
                     <S.Flex>
                         <label>Due Date</label>
                         <S.FormControl>
-                            <Input type="date" name="due" block value={moment(todoItem.due).format('YYYY-MM-DD')} onChange={onChange} />
+                            <Input type="date" name="due" block value={moment(todoItem.due).format('YYYY-MM-DD')} onChange={onChange} min={moment().format('YYYY-MM-DD')} />
                         </S.FormControl>
                     </S.Flex>
                     <S.Flex>

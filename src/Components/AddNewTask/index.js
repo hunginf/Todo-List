@@ -31,9 +31,10 @@ export default function AddNewTask({
             _created: new Date().getTime(),
             title: item.title,
             due: item.due || moment().format('YYYY-MM-DD'),
-            priority: item.priority,
+            priority: item.priority || 'normal',
             description: item.description
         };
+        console.log(newItem)
         setItems(items.concat(newItem));
         // close form
         setOpen(false);
@@ -73,13 +74,13 @@ export default function AddNewTask({
                         <S.Flex>
                             <S.Label>Due Date</S.Label>
                             <S.FormControl>
-                                <Input type="date" name="due" block value={moment(item.due).format('YYYY-MM-DD')} onChange={onChange} />
+                                <Input type="date" name="due" block value={moment(item.due).format('YYYY-MM-DD')} min={moment().format('YYYY-MM-DD')} onChange={onChange} />
                             </S.FormControl>
                         </S.Flex>
                         <S.Flex>
                             <S.Label>Priority</S.Label>
                             <S.FormControl>
-                                <Select name="priority" block values={priorityOptions} defaultValue={item.priority} onChange={onChange} />
+                                <Select name="priority" block values={priorityOptions} defaultValue={'normal'} onChange={onChange} />
                             </S.FormControl>
                         </S.Flex>
                     </S.Row>
